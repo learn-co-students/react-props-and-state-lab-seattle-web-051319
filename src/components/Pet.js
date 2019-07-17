@@ -2,12 +2,6 @@ import React from 'react'
 
 class Pet extends React.Component {
 
-  displayYeetNess = () => {
-    //onClick={this.props.onAdoptPet(this.props.pet.id)}
-    //onClick={this.props.onAdoptPet(this.props.pet.id)}
-  }
-
-
   displayGender = () => {
     if (this.props.pet.gender === 'male') {
       return '♂'
