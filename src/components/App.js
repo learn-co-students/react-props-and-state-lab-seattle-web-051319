@@ -38,18 +38,18 @@ class App extends Component {
 	};
 	
 	onAdoptPet = (petId) => {
-		const statePetsCopy = this.state.pets;
-		
-		for (let i = 0; i < statePetsCopy.length; i++) {
-			if (statePetsCopy[i].id === petId) {
-				statePetsCopy[i].isAdopted = true;
-			}
-		};
+		const petsUpdate = this.state.pets.map(pet => {
+				if (pet.id === petId) {
+					return {...pet, isAdopted: true};
+				} else {
+					return pet;
+				}
+		});
 		
 		this.setState({
-			pets: statePetsCopy
+			pets: petsUpdate
 		});
-	};
+	}
 
 	render() {			
 		return (
