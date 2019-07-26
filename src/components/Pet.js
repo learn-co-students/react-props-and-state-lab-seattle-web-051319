@@ -8,14 +8,14 @@ class Pet extends React.Component {
   //
   //      }
 
-  handleClickAdoptPet = () => {
+  handleClickAdoptPet = (id) => {
     // console.log(this.props.pet.id)
-      this.props.onAdoptPet(this.props.pet.id)
+      this.props.onAdoptPet(id)
 
   }
 
   render() {
-    const {name, age, weight, type, gender, isAdopted} = this.props.pet
+    const { name, age, weight, type, gender, isAdopted, id } = this.props.pet
 
     return (
       <div className="card">
@@ -33,10 +33,10 @@ class Pet extends React.Component {
           </div>
         </div>
         <div className="extra content">
-            {isAdopted === "false"? (
+            {isAdopted ? (
           <button className="ui disabled button">Already adopted</button>):
 
-          (<button onClick={this.handleClickAdoptPet} className="ui primary button">Adopt Me</button>)
+          (<button onClick={() => this.handleClickAdoptPet(id)} className="ui primary button">Adopt Me</button>)
               }
         </div>
       </div>

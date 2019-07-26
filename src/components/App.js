@@ -16,15 +16,15 @@ class App extends React.Component {
   }
 
   adoptPet = id => {
-    console.log(id)
-    this.setState(prevState =>{
-      prevState.pets.map(pet => {
-        pet.id ===id? pet.isAdopted=true:null
+    console.log('id in adopt pet', id)
+    const newPets = this.state.pets.map(pet => {
+      return pet.id ===id ? {...pet, isAdopted: true} : pet
 
-      })
-      // console.log()
-      return prevState
-
+    })
+    console.log('new pets', newPets)
+    // console.log(id)
+    this.setState({
+      pets: newPets
     })
   }
 
